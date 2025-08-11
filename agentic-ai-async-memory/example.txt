@@ -1,0 +1,22 @@
+
+            LangChain Documentation
+            
+            LangChain is a framework for developing applications powered by language models. 
+            It enables applications that are context-aware and can reason about their environment.
+            
+            Key Components:
+            1. LLMs and Chat Models - The core language model interface
+            2. Prompts - Templates and strategies for formatting inputs
+            3. Chains - Sequences of calls to LLMs or other utilities
+            4. Agents - Use LLMs to decide which actions to take
+            5. Memory - Persist state between calls
+            6. Document Loaders - Load data from various sources
+            
+            RAG (Retrieval Augmented Generation):
+            RAG combines retrieval and generation to provide more accurate and contextual responses.
+            It works by first retrieving relevant documents, then using those documents to generate responses.
+            
+            Vector Stores:
+            Vector stores enable semantic search by storing document embeddings.
+            Common vector stores include Chroma, FAISS, and Pinecone.
+            

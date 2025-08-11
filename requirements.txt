@@ -1,0 +1,11 @@
+# Core LangChain packages
+langchain>=0.1.0
+langchain-google-genai>=0.0.5
+langchain-community>=0.0.10
+langchain-chroma>=0.1.0
+
+# Additional dependencies
+python-dotenv>=1.0.0
+chromadb>=0.4.0
+requests>=2.31.0
+sqlite3

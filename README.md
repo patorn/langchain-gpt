@@ -39,7 +39,8 @@ The prototype creates a sample SQLite database with:
 
 3. **Run the prototype:**
    ```bash
-   python singlefile_prototype.py
+   cd agentic-ai-inmemorychat
+   python main.py
    ```
 
 ## Example Queries
@@ -131,4 +132,3 @@ Set `verbose=True` in AgentExecutor to see detailed execution steps.
 
 ## License
 MIT License - Feel free to modify and extend for your needs!
-# langchain-gpt
