@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Agentic AI Chat</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2rem; }
+    #messages { border: 1px solid #ccc; padding: 1rem; height: 300px; overflow-y: auto; }
+    .user { color: #1a73e8; }
+    .ai { color: #0b8043; }
+    form { margin-top: 1rem; display:flex; gap:.5rem; }
+    input[type=text] { flex:1; padding:.5rem; }
+    button { padding:.5rem 1rem; }
+  </style>
+</head>
+<body>
+  <h1>Agentic AI Chat</h1>
+  <div id="messages"></div>
+  <form id="chat-form">
+    <input id="input" type="text" placeholder="Ask something..." required />
+    <button>Send</button>
+  </form>
+  <script>
+    const messagesDiv = document.getElementById('messages');
+    const form = document.getElementById('chat-form');
+    const input = document.getElementById('input');
+    const sessionId = 'demo';
+
+    function append(role, text){
+      const div = document.createElement('div');
+      div.className = role;
+      div.textContent = role.toUpperCase()+': '+text;
+      messagesDiv.appendChild(div);
+      messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    }
+
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      const q = input.value.trim();
+      if(!q) return;
+      append('user', q);
+      input.value='';
+      const resp = await fetch('/api/chat', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({session_id: sessionId, message: q})});
+      const data = await resp.json();
+      append('ai', data.answer || JSON.stringify(data));
+    });
+  </script>
+</body>
+</html>
